@@ -1,0 +1,5 @@
+#游戏数据操作地址
+[GameRedis]
+    addr="kubernetes://%s/game-redis:1981"
+    pwd= ""	
+	

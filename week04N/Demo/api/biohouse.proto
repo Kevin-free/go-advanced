@@ -1,0 +1,551 @@
+syntax = "proto2";
+package biohouse;
+
+import "google/api/annotations.proto";
+
+service Biohouse {
+	rpc ReqPing(CSPing) returns (SCPing) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqPing"
+        };
+    };
+	rpc ReqLogin(CSLogin) returns (SCLogin) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqLogin"
+        };
+    };
+	rpc ReqLogout(CSLogout) returns (SCLogout) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqLogout"
+        };
+    };
+	rpc ReqAttack(CSAttack) returns (SCAttack) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqAttack"
+        };
+    };
+	rpc ReqMaterial(CSMaterial) returns (SCMaterial) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqMaterial"
+        };
+    };
+	
+	rpc ReqChangeEquipWeaponID(CSChangeEquipWeaponID) returns (SCChangeEquipWeaponID) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqChangeEquipWeaponID"
+        };
+    };
+	
+	rpc ReqChangeHandWeapon(CSChangeHandWeapon) returns (SCChangeHandWeapon) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqChangeHandWeapon"
+        };
+    };
+	
+	rpc ReqChangeWeaponPart(CSChangeWeaponPart) returns (SCChangeWeaponPart) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqChangeWeaponPart"
+        };
+    };
+	
+	rpc ReqUpgradeWeaponPart(CSUpgradeWeaponPart) returns (SCUpgradeWeaponPart) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqUpgradeWeaponPart"
+        };
+    };
+	
+	rpc ReqWeaponReload(CSWeaponReload) returns (SCWeaponReload) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqWeaponReload"
+        };
+    };
+	
+	rpc ReqAimMove(CSAimMove) returns (SCAimMove) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqAimMove"
+        };
+    };
+	
+	rpc ReqAttackNull(CSAttackNull) returns (SCAttackNull) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqAttackNull"
+        };
+    };
+	
+	rpc ReqChangeRatio(CSChangeRatio) returns (SCChangeRatio) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqChangeRatio"
+        };
+    };
+	
+	rpc ReqEnterTable(CSEnterTable) returns (SCEnterTable) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqEnterTable"
+        };
+    };
+	
+	rpc ReqLeaveTable(CSLeaveTable) returns (SCLeaveTable) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqLeaveTable"
+        };
+    };
+	rpc ReqUseSkill(CSUseSkill) returns (SCUseSkill) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqUseSkill"
+        };
+    };
+
+	rpc ReqHurtPlayer(CSHurtPlayer) returns (SCHurtPlayer) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqHurtPlayer"
+        };
+    };
+	rpc ReqPlayerHPChange(CSPlayerHPChange) returns (SCPlayerHPChange) {
+        option (google.api.http) = {
+            post:"/Biohouse/ReqPlayerHPChange"
+        };
+    };
+}
+
+enum GameCommand {
+    Nothing = 0;
+    ReqPing 						= 1000; 	//发送ping包
+    ReqLogin 						= 1001; 	//登录
+    ReqLogout						= 1002;  	//退出
+    PushLogout						= 1003;  	//退出结果
+	PushNewMonster					= 1004;		//通知前端有新的怪物
+	
+	PushMoney 						= 1006;		//金币同步协议
+	ReqAttack 						= 1007;		//攻击协议
+	PushAttack						= 1008;		//push给桌子中所有玩家
+	ReqReady						= 1009;		//通知服务器,客户端已经准备好了
+	ReqMaterial						= 1010;		//获取材料信息以及改造某个部位需要消耗的材料数量
+	ReqChangeEquipWeaponID			= 1011;		//更换身上的武器,装备栏上的3个位置0、1、2都要发送过来
+	ReqChangeHandWeapon				= 1012;		//更换手上使用的是哪个的武器栏位id
+	PushChangeHandWeapon			= 1013;		//通知桌子中其他玩家 有玩家更换了武器栏位
+	PushEquipWeapon 				= 1014;		//玩家准备好之后,发送玩家身上装备的武器信息给桌中另外一个玩家
+	ReqWeaponReload					= 1015;		//换子弹（推送给同桌,自己不需要回包）
+	PushWeaponReload 				= 1016;		//推送给同桌换子弹
+	ReqAimMove 						= 1017;		//准星移动（推送给同桌,自己不需要回包）
+	PushAimMove						= 1018;		//推送给同桌 准星移动
+	ReqAttackNull 					= 1019;		//放空枪，（推送给同桌,自己不需要回包）
+	PushAttackNull 					= 1020;		//推送给同桌放空枪
+	ReqChangeWeaponPart 			= 1021;		//更换武器配件的品阶
+	ReqUpgradeWeaponPart 			= 1022;		//升级改造武器配件
+	ReqChangeRatio					= 1023;		//更换使用倍率
+	PushChangeRatio					= 1024;		//推送给同桌其他玩家换倍率
+	ReqEnterTable					= 1025;		//进桌
+	PushEnterTable					= 1026;		//推送给同桌其他玩家,有新玩家进桌了,会将进桌玩家信息push给同桌其他玩家;同时会将桌中其他玩家push给新进玩家
+	ReqLeaveTable					= 1027;		//玩家请求离桌
+	PushLeaveTable					= 1028;		//push给桌中其他玩家有人离桌了
+	PushChangeMaterial 				= 1029;		//push变化的材料已有的剩余总量到前端
+	ReqUseSkill 					= 1030;		//使用大招
+	PushUseSkill					= 1031;		//转发给同桌所有玩家使用大招情况
+	PushPassLevel 					= 1032;		//通知前端 关卡节点信息
+	PushMonsterAttackPlayer 		= 1033;		//服务器推送怪物攻击玩家信息
+	PushRecoveryPlayer 				= 1034;		//服务器推送死亡玩家复活恢复血量情况 定时推送
+	PushVipLevel 					= 1035;		//推送vip等级变化
+	PushPropsInfo 					= 1036;		//推送道具信息给玩家
+	PushCurLevelInfo                = 1037;     //通知前端 当前关卡信息
+	ReqHurtPlayer                   = 1038;     //攻击玩家
+	PushHurtPlayer                  = 1039;     //转发给同桌所有玩家 攻击玩家
+	ReqPlayerHPChange               = 1040;     //玩家血量恢复
+	PushPlayerHPChange              = 1041;     //转发给同桌所有玩家 玩家血量恢复
+}
+
+enum BiohouseErrCode {
+    Success = 0;
+    PlayerNotExist                  = 1000;     //玩家不存在
+    NotInTable                      = 1001;     //玩家不在游戏内
+    EnterRoomIsClosing              = 1002;     //服务器正在关闭,不能进入游戏
+    CreatePlayerFailed              = 1003;	    //创建玩家失败
+    PlayerAlreadyLogin              = 1004;     //玩家已经登录
+    InvalidToken                    = 1005;     //无效的验证码
+    LoadPropsFailed           		= 1006;     //获取大厅道具失败
+    LoadUserInfoFailed              = 1007;     //获取玩家基本信息失败
+    LoadGameDataFailed              = 1008;     //获取玩家附加数据失败
+    EnterGameNotifyHall             = 1009;     //通知大厅失败
+    EnterTableFailed                = 1010;     //进入桌子失败
+	LimitRequireFailed              = 1011;     //请求能否进入游戏失败
+	EnterLimit             			= 1012;     //限制进入游戏
+	TokenVerifyFailed				= 1013;		//验证码请求失败
+	TokenError						= 1014;		//验证码错误
+	ParameterIsWrong				= 1015;		//参数错误
+	MonsterNotExist 				= 1016;		//怪物不存在
+	WeaponNotExist 					= 1017;		//武器不存在
+	MonsterHasKilled 				= 1018;		//怪物已经被击退
+	MoneyNotEnough 					= 1019;		//金币不足
+	PartHasDestroy					= 1020;		//被攻击部位已经被销毁
+	NotHasWeaponPart 				= 1021; 	//武器部件还没有改造出来
+	WeaponPartUpgradeMax 			= 1022;		//部件已经升级到最高等级
+	WeaponPartNotFindUpgradeCfg		= 1023;		//部件没有找到升级配置
+	UpgradeMaterialNotEnough		= 1024;		//升级材料不足
+	UpgradeMaterialNotFindCfg		= 1025;		//没有找到升级材料配置
+	HasReady 						= 1026;		//玩家已经准备好了,不能进行其他操作
+	MustEquipOneWeapon 				= 1027;		//3个栏位最少要装备一把武器
+	PartQualityNotGreaterWeapon		= 1028;		//部件的品阶不能大于武器的品阶
+	HandlNoWeapon 					= 1029;		//玩家手上装备武器
+	ZeroQualityUseDefaultRatio 		= 1030;		//武器为0品阶使用默认倍率
+	RatioIllegal					= 1031;		//使用的倍率是非法的
+	RatioGreaterWeaponRatio			= 1032;		//使用的倍率大于武器设定的倍率范围
+	WeaponHurtIsZero				= 1033;		//武器伤害为0
+	HasEnterTable					= 1034;		//玩家已经进桌 不能进行相关操作
+	PartsHasDestroy					= 1035;		//该部位已经被破坏掉
+	NoSkillCanUse 					= 1036;		//没有技能可用
+	UseSkillIDIsError 				= 1037;		//使用的技能不存在
+	ModeIsError 					= 1038;		//模式错误
+	PlayerHasDied 					= 1039;		//玩家已经死亡
+	EnterTableMoneyNotEnough        = 1040;     // 进入场次金币不足
+	EnterTableWeaponLevelNot        = 1041;     // 进入场次武器等级不够
+	QPReadGoldFailed 				= 1042;		//读取金币失败
+	QPEnterRoomFailed 				= 1043;		//请求房间失败，你在其他房间的游戏还没结束
+	VersionIsWrong 					= 1044;		//版本号过低，不能进入游戏
+	QPBaseUserInfoGetFailed 		= 1045;		//获取亲朋用户失败
+}
+
+message CSPing {
+}
+
+message SCPing {
+	optional int64 CurSec = 1; //当前时间 传毫秒
+}
+
+//枪械信息
+message WeaponInfo {
+	optional int32 ID = 1;	//枪械id
+	optional string EquipPart = 2; //装备的武器部件 格式:  武器部位类型:部位最高品阶:装备时的品阶;武器部位类型:部位最高品阶:装备时的品阶 (部位类型 1:枪口 2:枪身 3:枪托 4:子弹 5:弹匣)
+}
+
+// 登录
+message CSLogin {
+	optional int64 PlayerID = 1;
+	optional string Token = 2;
+	optional int32 Version = 3; //用于判断先更服务器还是先更客户端 放到服务器来判断 小于该值就不让登陆
+	optional int32 Mode = 4; 	//登陆模式
+}
+
+message SCLogin {
+	optional int64 Money = 1;   	//玩家登陆时的金币
+	repeated int32 EquipID = 2;		//当前装备的是哪几把枪械 按照武器栏位顺序发3个个值到前端 武器栏位0、1、2;默认使用栏位0的枪械 玩家最多可配备3件武器
+	optional int32 HandID = 3;		//手上的武器栏位id,发送的值为:0、1、2
+	repeated WeaponInfo Info = 4;	//玩家所有的武器信息
+}
+
+message CSLogout {
+}
+
+message SCLogout {
+	optional int32 LogoutType = 1;//Type:0,服务器异常关闭；1,正常退出；2,心跳断开；3,超过攻击次数退出；4,账号在其他设备登陆;
+}
+
+//桌子中的玩家信息
+message TablePlayer {
+	optional int64  PlayerID 			= 1;
+	optional int64  Money 				= 2;
+	optional int32  ChairId 			= 3;	//从1开始
+	optional int32  VipLevel 			= 4;	//vip等级
+	optional int32	Background			= 5;	//头像背景
+	optional string Portrait			= 6; 	//头像
+	optional string Nick 				= 7;	//昵称
+	optional int32  HandID				= 8;	//手上的武器栏位id,发送的值为:0、1、2
+	repeated int32  EquipID 			= 9;	//当前装备的是哪几把枪械 按照武器栏位顺序发3个个值到前端 武器栏位0、1、2;默认使用栏位0的枪械 玩家最多可配备3件武器
+	repeated WeaponInfo Info			= 10;	//此处只发送玩家装备到武器栏0、1、2的武器信息
+	optional int32  Ratio 				= 11;	//玩家当前使用的倍率
+	optional int32 Blood 				= 12; 	//玩家血量
+}
+
+//客户端进桌请求
+message CSEnterTable {
+	optional int32  Mode = 1; //1:闯关模式 2:爽翻模式
+}
+
+//push发送 当是新玩家进桌,push桌中所有玩家信息给新进玩家;当是桌中其他玩家收到此协议,则为新进桌玩家信息 (后面再考虑切后台)
+message SCEnterTable {
+	repeated TablePlayer Info = 1; //该桌子中的已有玩家
+	optional int32  TableID	= 2; //玩家进入的桌子id号 即前端的房间号
+}
+
+//客户请求离桌请求
+message CSLeaveTable {
+
+}
+
+//push到桌子中其他玩家 有人离桌
+message SCLeaveTable {
+	optional int64  PlayerID = 1;
+}
+
+//金币同步
+message SCMoney {
+	optional int64 PlayerID = 1;		//哪个玩家攻击了
+	optional int64 Money = 2;			//该攻击玩家剩余金币
+	optional int32 Type =3;				//金币同步类型
+	optional int32 CreateID = 4; 		//被攻击的怪物id 如果只是金币同步 则该处为0
+}
+
+//杀怪
+message CSAttack {
+	optional int32 CreateID = 1; 	//击杀的怪物id
+	optional int32 PartID = 2;		//攻击怪物哪个部位	0:表示任何其他部位（非肢体部位） 1:头部 2:手臂  
+}
+
+//怪物剩余信息
+message BloodLeft {
+	optional int32 PartType = 1;	//0:表示任何其他部位（即怪物死亡总伤害） 1:头部 2:手臂  
+	optional int32 LeftBlood = 2;	//该部位剩余血量 当为0表示已经被破坏掉;如果Part=0，而LeftBlood也减为0则表示该怪物死亡;不管其他部位血量值是否还有
+}
+
+//push给所有玩家玩家, CSAttack回包为空 后面需要给桌子中所有玩家的都是用push
+message SCAttack {
+	optional int64 PlayerID = 1;	//哪个玩家攻击了
+	optional int32 CreateID = 2; 	//击杀的怪物id
+	optional int64 Money = 3;		//该攻击玩家剩余金币
+	optional int32 LeftBlood  = 4;	//怪物死亡 
+	optional BloodLeft Left = 5;	//如果怪物死亡 此处不会有值 怪物剩余血量信息 一个怪物可能有多个部位,为了给新进来的玩家能够同步桌子中的怪物,故将所有部位信息发前端
+	optional int32 Clip = 6;		//弹夹容量 如果大于0表示有大招了
+}
+
+//玩家vip等级变化
+message SCVipLevel {
+	optional int64 PlayerID = 1;	//哪个玩家的
+	optional int32 VipLevel = 2;	//vip等级
+}
+
+//道具信息
+message PropsInfo {
+	optional int32 PropsID = 1;	 	//道具id
+	optional int64 PropsNum = 2; 	//道具当前数量
+	optional int64 ChangeNum = 3; 	//道具变化量
+}
+
+//其他道具的推送
+message SCPropsInfo {
+	optional int64 PlayerID = 1;	//哪个玩家的
+	repeated PropsInfo Info = 2;	//道具信息
+}
+
+enum SkillID {
+	BigKill = 1; //大招
+	KillMax = 2; //
+}
+
+//技能开始使用
+message CSUseSkill {
+	optional int32 SkillID = 1; 	//使用的技能id 防止后面还有其他技能
+	optional bool Use = 2;			//是否使用技能 false:不使用 true:使用
+}
+
+//push给同桌所有玩家 包括自己
+message SCUseSkill {
+	optional int32 SkillID = 1; 	//使用的技能id 防止后面还有其他技能
+	optional bool Use = 2;			//是否使用技能 false:不使用 true:使用
+	optional int64 PlayerID = 3;	//哪个玩家发的协议
+}
+
+message PointInfo {
+	optional float X = 1; 	//x点坐标
+	optional float Y = 2; 	//y点坐标
+	optional float Z = 3;	//z坐标点
+}
+
+message MonsterInfo {
+	optional int32 LineType = 1; 	//路线类型 1:一阶直线 2:2阶 3:3阶
+	optional int32 CreateID = 2; 	//服务器生成的怪物序列号id
+	optional int32 MonsterID = 3; 	//怪物配置的id
+	repeated PointInfo Point = 4;	//坐标 按照顺序发送 从第一个到第N个坐标 先兼容爽翻模式 关卡模式只有一个起始点坐标
+	optional int64 BeginTime = 6;	//起点时间戳
+	optional int64 EndTime = 7;		//结束时间戳
+	repeated BloodLeft Left = 5;	//怪物剩余血量信息 一个怪物可能有多个部位,为了给新进来的玩家能够同步桌子中的怪物,故将所有部位信息发前端
+	optional int32 AIType = 8; //怪物类型
+}
+
+//更新怪物到前端 如果是新进入桌子的玩家 怪物同步也是发送次协议
+message SCNewMonster {
+	repeated MonsterInfo Info = 1; //有新怪通知前端 
+}
+
+//材料信息
+message MaterialInfo {
+	optional int32 ID = 1;				//材料id
+	optional int32 Num = 2;				//材料已有的数量
+}
+
+//获取材料信息以及改造某个部位需要消耗的材料数量
+message CSMaterial {
+}
+
+message SCMaterial {
+	repeated MaterialInfo MatInfo = 1;	//已有的材料信息
+}
+
+enum MaterialType {
+	Upgrade = 1; 	//升级改造消耗的材料
+	Drop = 2; 		//杀怪掉落材料
+}
+
+//消耗或者获得材料 更新变化的材料当前总数量到前端
+message SCChangeMaterial {
+	repeated MaterialInfo MatInfo = 1;
+	optional MaterialType Type = 2; //材料变化类型
+	optional int64 PlayerID = 3;	//哪个玩家击杀的
+	optional int32 CreateID = 4; 	//击杀的怪物id
+}
+
+//更换身上的武器,装备栏上的3个位置0、1、2都要发送过来
+message CSChangeEquipWeaponID {
+	repeated int32  EquipID = 1;	//当前装备的是哪几把枪械 按照武器栏位顺序发3个个值到前端 武器栏位0、1、2;默认使用栏位0的枪械 
+}
+
+message SCChangeEquipWeaponID {
+}
+
+//更换手上使用的是哪个的武器栏位id
+message CSChangeHandWeapon {
+	optional int32 HandID = 1;	//手上的武器栏位id,发送的值为:0、1、2
+}
+
+//push到桌子中其他玩家 换了武器 则默认的倍率也会使用当前武器装备的品阶倍率
+message SCChangeHandWeapon {
+	optional int64 PlayerID = 1;
+	optional int32 HandID = 2;	 //手上的武器栏位id,发送的值为:0、1、2
+	optional int32 Ratio = 3;
+}
+
+//更换武器配件 的品阶
+message CSChangeWeaponPart {
+	optional int32 WeaponID = 1; 	//武器id
+	optional int32 PartID = 2; 		//对应的部件id 1:枪口 2:枪身 3:枪托 4:子弹 5:弹匣
+	optional int32 Quality = 3; 	//装备部件的品阶0~6
+}
+
+message SCChangeWeaponPart {
+	optional WeaponInfo Info = 1; 	//被更换之后的武器信息
+}
+
+//改造武器配件
+message CSUpgradeWeaponPart {
+	optional int32 WeaponID = 1; 	//武器id
+	optional int32 PartID = 2; 		//对应的部件id 1:枪口 2:枪身 3:枪托 4:子弹 5:弹匣
+}
+
+message SCUpgradeWeaponPart {
+	optional WeaponInfo Info = 1; 	//武器配件改造之后，发送该把武器的信息给玩家
+}
+
+//要进桌之后才能发送此更换倍率
+message CSChangeRatio {
+	optional int32 Ratio = 1;
+}
+
+//push到桌子中其他玩家
+message SCChangeRatio {
+	optional int64 PlayerID = 1; 
+	optional int32 Ratio = 2;
+}
+
+//换子弹（推送给同桌,自己不需要回包）
+message CSWeaponReload {
+
+}
+
+//push给桌子中其他玩家 自己不需要
+message SCWeaponReload {
+	optional int64 PlayerID = 1; //哪个玩家更换子弹
+}
+
+//准星移动（推送给同桌,自己不需要回包）
+message CSAimMove {
+	optional PointInfo Point = 1;	//坐标
+}
+
+//push给桌子中其他玩家 自己不需要
+message SCAimMove {
+	optional int64 PlayerID = 1; //
+	optional PointInfo Point = 2;	//坐标	
+}
+
+//放空枪，（推送给同桌,自己不需要回包）
+message CSAttackNull {
+	optional PointInfo Point = 1;	//坐标
+}
+
+//push给桌子中其他玩家 自己不需要
+message SCAttackNull {
+	optional int64 PlayerID = 1; //
+	optional PointInfo Point = 2;	//坐标	
+}
+
+//通知客户端 创关进入新的节点，或者闯关成功,进入新的地图模式 玩家进桌也会发送次协议
+message SCPassLevel {
+	optional bool Success = 1;	//是否闯节点成功 如果是新进桌的 该值为false
+	optional bool NewPass = 2;	//false:还处在这一关卡的某个节点中,新进桌的玩家该值为false;  true:该关卡的所有节点都闯完,又重新从第一节点开始
+	optional int32 MapID = 3;	//地图id
+	optional int32 Node = 4;	//进行到了哪个节点
+	optional int32 PathID = 5;  //路径ID
+}
+
+message HurtBlood {
+	optional int64 PlayerID = 1; 	//被怪攻击的玩家
+	optional int32 Blood = 2; 		//血量
+}
+
+//怪物攻击了哪几个玩家 攻击的血量值
+message HurtPlayer {
+	optional int32 CreateID = 1; //哪只怪攻击玩家
+	repeated HurtBlood Hurt = 2; //被攻击的血量信息
+}
+
+//玩家的剩余血量情况
+message PlayerBlood {
+	optional int64 PlayerID = 1; 	//被怪攻击的玩家
+	optional int32 Blood = 2; 		//剩余血量
+	optional bool HasDied = 3;		//false:活 true:死亡 因为玩家有复活过程,有血量不一定活着
+}
+
+//怪物攻击玩家
+message SCMonsterAttackPlayer {
+	repeated HurtPlayer Hp = 1;		//哪些怪攻击了玩家
+	repeated PlayerBlood Left = 2; 	//玩家剩余的血量
+}
+
+//玩家死亡 恢复血量 定时发送到前端
+message SCRecoveryPlayer {
+	repeated PlayerBlood Left = 1; 	//玩家剩余的血量
+}
+
+//当前闯关信息
+message SCCurLevelInfo {
+	optional int32 MapID = 1;	//地图id
+    optional int32 PathID = 2;	//路线id
+	optional int32 Node = 3;	//进行到了哪个节点
+    optional int64 Stamp= 4;	//进入节点的时间戳
+}
+
+//玩家血量信息
+message PlayerHP{
+	optional int64 PlayerID = 1; 	//被怪攻击的玩家
+	optional int32 LeftHP= 2; 		//剩余血量
+}
+
+// 攻击玩家
+message CSHurtPlayer{
+    optional int32 CreateID = 1; //哪只怪攻击玩家
+	optional PlayerHP PH= 2; 	//被怪攻击的玩家
+}
+
+//push给桌子中其他玩家 自己不需要
+message SCHurtPlayer {
+    optional int64 PlayerID = 1; //玩家ID
+    optional int32 CreateID = 2; //哪只怪攻击玩家
+	optional PlayerHP PH= 3; 	//被怪攻击的玩家
+}
+
+//玩家血量恢复
+message CSPlayerHPChange {
+    optional PlayerHP PH= 1; 	//玩家血量
+}
+
+//push给桌子中其他玩家 自己不需要
+message SCPlayerHPChange {
+    optional PlayerHP PH= 1; 	//玩家血量
+}

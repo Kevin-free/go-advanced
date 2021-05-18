@@ -1,0 +1,9 @@
+{
+    "PingSec": 20,
+    "KeepSec": 180,
+    "TableEveryNum": 2,
+    "TableNum": 250,
+    "PreventCheatMinLimit": 100000000,
+    "VipPointBase": 10000,
+	"VipPointRatios": 3
+}

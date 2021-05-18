@@ -1,0 +1,6 @@
+[Discovery]
+    nodes = ["172.13.12.42:7171"]
+    region = "sz"
+    zone = "sz001"
+    env = "dev"
+    host = "test"

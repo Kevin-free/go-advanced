@@ -1,0 +1,21 @@
+{
+    "GameTips":
+    [
+        {
+			"ID": 1,
+			"Content": "作恶多端的小丑王最终被<color=#16bd00>【%s】</color>s击败了，失窃的<color=#ffc600>%s</color>s金币已被夺回！！",
+			"Value": 5000000,
+			"SubType": 3,
+			"Type": 0,
+			"Level": 0
+		},
+		{
+			"ID": 2,
+			"Content": "<color=#16bd00>【%s】</color>击杀金猪皇,获得了<color=#ffc600>%s</color>的金币回报，所以人生就该努力去拼搏，指不定那天就走大运了呢，风险与机遇总是并存的！！",
+			"Value": 5000000,
+			"SubType": 3,
+			"Type": 0,
+			"Level": 0
+		}
+    ]
+}

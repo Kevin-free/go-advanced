@@ -1,0 +1,34 @@
+[GsConfig]
+    Dial = 3  #单位秒
+    Timeout = 5000 #单位毫秒
+    Subset = 50
+    Zone = "sz001"
+    APPID = "gsservice"
+
+[WorldConfig]
+    Dial = 3  #单位秒
+    Timeout = 5000 #单位毫秒
+    Subset = 50
+    Zone = "sz001"
+    APPID = "worldservice"
+
+[RoomcenterConfig]
+    Dial = 3  #单位秒
+    Timeout = 5000 #单位毫秒
+    Subset = 50
+    Zone = "sz001"
+    APPID = "roomcenter"
+
+[StatisticConfig]
+    Dial = 3  #单位秒
+    Timeout = 5000 #单位毫秒
+    Subset = 50
+    Zone = "sz001"
+    APPID = "statistics"
+
+[GameJobConfig]
+    Dial = 3  #单位秒
+    Timeout = 5000 #单位毫秒
+    Subset = 50
+    Zone = "sz001"
+    APPID = "gamejob"

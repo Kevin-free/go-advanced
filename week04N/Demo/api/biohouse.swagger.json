@@ -1,0 +1,1188 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "biohouse.proto",
+        "version": ""
+    },
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [
+        "application/json",
+        "multipart/form-data"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/Biohouse/ReqAimMove": {
+            "post": {
+                "summary": "/Biohouse/ReqAimMove",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCAimMove"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSAimMove"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqAttack": {
+            "post": {
+                "summary": "/Biohouse/ReqAttack",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCAttack"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSAttack"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqAttackNull": {
+            "post": {
+                "summary": "/Biohouse/ReqAttackNull",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCAttackNull"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSAttackNull"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqChangeEquipWeaponID": {
+            "post": {
+                "summary": "/Biohouse/ReqChangeEquipWeaponID",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCChangeEquipWeaponID"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSChangeEquipWeaponID"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqChangeHandWeapon": {
+            "post": {
+                "summary": "/Biohouse/ReqChangeHandWeapon",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCChangeHandWeapon"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSChangeHandWeapon"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqChangeRatio": {
+            "post": {
+                "summary": "/Biohouse/ReqChangeRatio",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCChangeRatio"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSChangeRatio"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqChangeWeaponPart": {
+            "post": {
+                "summary": "/Biohouse/ReqChangeWeaponPart",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCChangeWeaponPart"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSChangeWeaponPart"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqEnterTable": {
+            "post": {
+                "summary": "/Biohouse/ReqEnterTable",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCEnterTable"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSEnterTable"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqHurtPlayer": {
+            "post": {
+                "summary": "/Biohouse/ReqHurtPlayer",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCHurtPlayer"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSHurtPlayer"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqLeaveTable": {
+            "post": {
+                "summary": "/Biohouse/ReqLeaveTable",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCLeaveTable"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSLeaveTable"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqLogin": {
+            "post": {
+                "summary": "/Biohouse/ReqLogin",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCLogin"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSLogin"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqLogout": {
+            "post": {
+                "summary": "/Biohouse/ReqLogout",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCLogout"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSLogout"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqMaterial": {
+            "post": {
+                "summary": "/Biohouse/ReqMaterial",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCMaterial"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSMaterial"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqPing": {
+            "post": {
+                "summary": "/Biohouse/ReqPing",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCPing"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSPing"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqPlayerHPChange": {
+            "post": {
+                "summary": "/Biohouse/ReqPlayerHPChange",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCPlayerHPChange"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSPlayerHPChange"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqUpgradeWeaponPart": {
+            "post": {
+                "summary": "/Biohouse/ReqUpgradeWeaponPart",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCUpgradeWeaponPart"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSUpgradeWeaponPart"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqUseSkill": {
+            "post": {
+                "summary": "/Biohouse/ReqUseSkill",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCUseSkill"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSUseSkill"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        },
+        "/Biohouse/ReqWeaponReload": {
+            "post": {
+                "summary": "/Biohouse/ReqWeaponReload",
+                "responses": {
+                    "200": {
+                        "description": "A successful response.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "type": "integer"
+                                },
+                                "message": {
+                                    "type": "string"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/.biohouse.SCWeaponReload"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/.biohouse.CSWeaponReload"
+                        }
+                    }
+                ],
+                "tags": [
+                    "biohouse.Biohouse"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        ".biohouse.BloodLeft": {
+            "type": "object",
+            "properties": {
+                "PartType": {
+                    "type": "integer"
+                },
+                "LeftBlood": {
+                    "type": "integer"
+                }
+            },
+            "description": "怪物剩余信息"
+        },
+        ".biohouse.CSAimMove": {
+            "type": "object",
+            "properties": {
+                "Point": {
+                    "$ref": "#/definitions/.biohouse.PointInfo"
+                }
+            },
+            "description": "准星移动（推送给同桌,自己不需要回包）"
+        },
+        ".biohouse.CSAttack": {
+            "type": "object",
+            "properties": {
+                "CreateID": {
+                    "type": "integer"
+                },
+                "PartID": {
+                    "type": "integer"
+                }
+            },
+            "description": "杀怪"
+        },
+        ".biohouse.CSAttackNull": {
+            "type": "object",
+            "properties": {
+                "Point": {
+                    "$ref": "#/definitions/.biohouse.PointInfo"
+                }
+            },
+            "description": "放空枪，（推送给同桌,自己不需要回包）"
+        },
+        ".biohouse.CSChangeEquipWeaponID": {
+            "type": "object",
+            "properties": {
+                "EquipID": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "description": "更换身上的武器,装备栏上的3个位置0、1、2都要发送过来"
+        },
+        ".biohouse.CSChangeHandWeapon": {
+            "type": "object",
+            "properties": {
+                "HandID": {
+                    "type": "integer"
+                }
+            },
+            "description": "更换手上使用的是哪个的武器栏位id"
+        },
+        ".biohouse.CSChangeRatio": {
+            "type": "object",
+            "properties": {
+                "Ratio": {
+                    "type": "integer"
+                }
+            },
+            "description": "要进桌之后才能发送此更换倍率"
+        },
+        ".biohouse.CSChangeWeaponPart": {
+            "type": "object",
+            "properties": {
+                "WeaponID": {
+                    "type": "integer"
+                },
+                "PartID": {
+                    "type": "integer"
+                },
+                "Quality": {
+                    "type": "integer"
+                }
+            },
+            "description": "更换武器配件 的品阶"
+        },
+        ".biohouse.CSEnterTable": {
+            "type": "object",
+            "properties": {
+                "Mode": {
+                    "type": "integer"
+                }
+            },
+            "description": "客户端进桌请求"
+        },
+        ".biohouse.CSHurtPlayer": {
+            "type": "object",
+            "properties": {
+                "CreateID": {
+                    "type": "integer"
+                },
+                "PH": {
+                    "$ref": "#/definitions/.biohouse.PlayerHP"
+                }
+            },
+            "description": "攻击玩家"
+        },
+        ".biohouse.CSLeaveTable": {
+            "type": "object",
+            "properties": {},
+            "description": "客户请求离桌请求"
+        },
+        ".biohouse.CSLogin": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "Token": {
+                    "type": "string"
+                },
+                "Version": {
+                    "type": "integer"
+                },
+                "Mode": {
+                    "type": "integer"
+                }
+            },
+            "description": "登录"
+        },
+        ".biohouse.CSLogout": {
+            "type": "object",
+            "properties": {}
+        },
+        ".biohouse.CSMaterial": {
+            "type": "object",
+            "properties": {},
+            "description": "获取材料信息以及改造某个部位需要消耗的材料数量"
+        },
+        ".biohouse.CSPing": {
+            "type": "object",
+            "properties": {}
+        },
+        ".biohouse.CSPlayerHPChange": {
+            "type": "object",
+            "properties": {
+                "PH": {
+                    "$ref": "#/definitions/.biohouse.PlayerHP"
+                }
+            },
+            "description": "玩家血量恢复"
+        },
+        ".biohouse.CSUpgradeWeaponPart": {
+            "type": "object",
+            "properties": {
+                "WeaponID": {
+                    "type": "integer"
+                },
+                "PartID": {
+                    "type": "integer"
+                }
+            },
+            "description": "改造武器配件"
+        },
+        ".biohouse.CSUseSkill": {
+            "type": "object",
+            "properties": {
+                "SkillID": {
+                    "type": "integer"
+                },
+                "Use": {
+                    "type": "boolean"
+                }
+            },
+            "description": "技能开始使用"
+        },
+        ".biohouse.CSWeaponReload": {
+            "type": "object",
+            "properties": {},
+            "description": "换子弹（推送给同桌,自己不需要回包）"
+        },
+        ".biohouse.MaterialInfo": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "integer"
+                },
+                "Num": {
+                    "type": "integer"
+                }
+            },
+            "description": "材料信息"
+        },
+        ".biohouse.PlayerHP": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "LeftHP": {
+                    "type": "integer"
+                }
+            },
+            "description": "玩家血量信息"
+        },
+        ".biohouse.PointInfo": {
+            "type": "object",
+            "properties": {
+                "X": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "Y": {
+                    "type": "number",
+                    "format": "float"
+                },
+                "Z": {
+                    "type": "number",
+                    "format": "float"
+                }
+            }
+        },
+        ".biohouse.SCAimMove": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "Point": {
+                    "$ref": "#/definitions/.biohouse.PointInfo"
+                }
+            },
+            "description": "push给桌子中其他玩家 自己不需要"
+        },
+        ".biohouse.SCAttack": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "CreateID": {
+                    "type": "integer"
+                },
+                "Money": {
+                    "type": "integer"
+                },
+                "LeftBlood": {
+                    "type": "integer"
+                },
+                "Left": {
+                    "$ref": "#/definitions/.biohouse.BloodLeft"
+                },
+                "Clip": {
+                    "type": "integer"
+                }
+            },
+            "description": "push给所有玩家玩家, CSAttack回包为空 后面需要给桌子中所有玩家的都是用push"
+        },
+        ".biohouse.SCAttackNull": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "Point": {
+                    "$ref": "#/definitions/.biohouse.PointInfo"
+                }
+            },
+            "description": "push给桌子中其他玩家 自己不需要"
+        },
+        ".biohouse.SCChangeEquipWeaponID": {
+            "type": "object",
+            "properties": {}
+        },
+        ".biohouse.SCChangeHandWeapon": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "HandID": {
+                    "type": "integer"
+                },
+                "Ratio": {
+                    "type": "integer"
+                }
+            },
+            "description": "push到桌子中其他玩家 换了武器 则默认的倍率也会使用当前武器装备的品阶倍率"
+        },
+        ".biohouse.SCChangeRatio": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "Ratio": {
+                    "type": "integer"
+                }
+            },
+            "description": "push到桌子中其他玩家"
+        },
+        ".biohouse.SCChangeWeaponPart": {
+            "type": "object",
+            "properties": {
+                "Info": {
+                    "$ref": "#/definitions/.biohouse.WeaponInfo"
+                }
+            }
+        },
+        ".biohouse.SCEnterTable": {
+            "type": "object",
+            "properties": {
+                "Info": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.biohouse.TablePlayer"
+                    }
+                },
+                "TableID": {
+                    "type": "integer"
+                }
+            },
+            "description": "push发送 当是新玩家进桌,push桌中所有玩家信息给新进玩家;当是桌中其他玩家收到此协议,则为新进桌玩家信息 (后面再考虑切后台)"
+        },
+        ".biohouse.SCHurtPlayer": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "CreateID": {
+                    "type": "integer"
+                },
+                "PH": {
+                    "$ref": "#/definitions/.biohouse.PlayerHP"
+                }
+            },
+            "description": "push给桌子中其他玩家 自己不需要"
+        },
+        ".biohouse.SCLeaveTable": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                }
+            },
+            "description": "push到桌子中其他玩家 有人离桌"
+        },
+        ".biohouse.SCLogin": {
+            "type": "object",
+            "properties": {
+                "Money": {
+                    "type": "integer"
+                },
+                "EquipID": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "HandID": {
+                    "type": "integer"
+                },
+                "Info": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.biohouse.WeaponInfo"
+                    }
+                }
+            }
+        },
+        ".biohouse.SCLogout": {
+            "type": "object",
+            "properties": {
+                "LogoutType": {
+                    "type": "integer"
+                }
+            }
+        },
+        ".biohouse.SCMaterial": {
+            "type": "object",
+            "properties": {
+                "MatInfo": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.biohouse.MaterialInfo"
+                    }
+                }
+            }
+        },
+        ".biohouse.SCPing": {
+            "type": "object",
+            "properties": {
+                "CurSec": {
+                    "type": "integer"
+                }
+            }
+        },
+        ".biohouse.SCPlayerHPChange": {
+            "type": "object",
+            "properties": {
+                "PH": {
+                    "$ref": "#/definitions/.biohouse.PlayerHP"
+                }
+            },
+            "description": "push给桌子中其他玩家 自己不需要"
+        },
+        ".biohouse.SCUpgradeWeaponPart": {
+            "type": "object",
+            "properties": {
+                "Info": {
+                    "$ref": "#/definitions/.biohouse.WeaponInfo"
+                }
+            }
+        },
+        ".biohouse.SCUseSkill": {
+            "type": "object",
+            "properties": {
+                "SkillID": {
+                    "type": "integer"
+                },
+                "Use": {
+                    "type": "boolean"
+                },
+                "PlayerID": {
+                    "type": "integer"
+                }
+            },
+            "description": "push给同桌所有玩家 包括自己"
+        },
+        ".biohouse.SCWeaponReload": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                }
+            },
+            "description": "push给桌子中其他玩家 自己不需要"
+        },
+        ".biohouse.TablePlayer": {
+            "type": "object",
+            "properties": {
+                "PlayerID": {
+                    "type": "integer"
+                },
+                "Money": {
+                    "type": "integer"
+                },
+                "ChairId": {
+                    "type": "integer"
+                },
+                "VipLevel": {
+                    "type": "integer"
+                },
+                "Background": {
+                    "type": "integer"
+                },
+                "Portrait": {
+                    "type": "string"
+                },
+                "Nick": {
+                    "type": "string"
+                },
+                "HandID": {
+                    "type": "integer"
+                },
+                "EquipID": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "Info": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/.biohouse.WeaponInfo"
+                    }
+                },
+                "Ratio": {
+                    "type": "integer"
+                },
+                "Blood": {
+                    "type": "integer"
+                }
+            },
+            "description": "桌子中的玩家信息"
+        },
+        ".biohouse.WeaponInfo": {
+            "type": "object",
+            "properties": {
+                "ID": {
+                    "type": "integer"
+                },
+                "EquipPart": {
+                    "type": "string"
+                }
+            },
+            "description": "枪械信息"
+        }
+    }
+}

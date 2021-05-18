@@ -1,0 +1,21 @@
+{
+	"MonsterTypeName": 
+	[
+		{
+			"Type":0,
+			"Name":"普通"
+		},
+		{
+			"Type":1,
+			"Name":"背包怪"
+		},
+		{
+			"Type":2,
+			"Name":"小丑王"
+		},
+		{
+			"Type":3,
+			"Name":"金猪"
+		}
+	]
+}
